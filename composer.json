@@ -9,6 +9,9 @@
             "email": "zackad.dev@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"Zackad\\GIS\\": "src/"}
+    },
     "require": {
         "phpunit/phpunit": "^6.5"
     }
