@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {"Zackad\\GIS\\": "src/"}
     },
+    "scripts": {
+        "test": "phpunit --colors='always'"
+    },
     "require": {
         "phpunit/phpunit": "^6.5"
     }
