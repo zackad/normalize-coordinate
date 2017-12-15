@@ -1,0 +1,14 @@
+{
+    "name": "zackad/normalize-coordinate",
+    "description": "Normalize Longitude and Latitude coordinate.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zackad",
+            "email": "zackad.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
