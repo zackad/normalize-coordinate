@@ -9,6 +9,7 @@
             "email": "zackad.dev@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "phpunit/phpunit": "^6.5"
+    }
 }
