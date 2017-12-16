@@ -34,6 +34,6 @@ final class NormalizeTest extends TestCase
 
     public function testNormalizedShouldIncludeFloatingPoint()
     {
-        $this->assertEquals(12.12345, $this->coord->normalize(192.12345));
+        $this->assertEquals(-12.123456, $this->coord->normalize(192.123456));
     }
 }
