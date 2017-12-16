@@ -1,6 +1,6 @@
 <?php
 
-namespace Zackad\GIS;
+namespace Zackad\GIS\Coordinate;
 
 /**
 * A simple library to normalize geographic coordinate into valid range
