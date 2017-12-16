@@ -10,21 +10,30 @@ use Zackad\GIS\Coordinate\Normalize;
 */
 final class NormalizeTest extends TestCase
 {
+    private $coord;
+
+    public function setUp()
+    {
+        $this->coord = new Normalize;
+    }
+
     public function testCanCreateNormalizeClass()
     {
-        $coordinate = new Normalize;
-        $this->assertInstanceOf(Normalize::class, $coordinate);
+        $this->assertInstanceOf(Normalize::class, $this->coord);
     }
 
     public function testNormalizeLongitudeGreaterThan180AndLessThan360ShouldReturnNegativeValue()
     {
-        $coordinate = new Normalize;
-        $this->assertEquals(-10, $coordinate->normalize(190));
+        $this->assertEquals(-10, $this->coord->normalize(190));
     }
 
     public function testNormalizeLongitudeGreaterThan360ShouldReturnPositiveValue()
     {
-        $coordinate = new Normalize;
-        $this->assertEquals(10, $coordinate->normalize(370));
+        $this->assertEquals(10, $this->coord->normalize(370));
+    }
+
+    public function testNormalizedShouldIncludeFloatingPoint()
+    {
+        $this->assertEquals(12.12345, $this->coord->normalize(192.12345));
     }
 }
