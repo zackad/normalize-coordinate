@@ -19,6 +19,6 @@ final class NormalizeTest extends TestCase
     public function testNormalizeLongitudeGreaterThan180Degre()
     {
         $coordinate = new Normalize;
-        $this->assertEqual(-10, $coordinate->normalize(190));
+        $this->assertEquals(-10, $coordinate->normalize(190));
     }
 }
