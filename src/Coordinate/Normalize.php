@@ -11,6 +11,9 @@ class Normalize
 {
     public function normalize($longitude)
     {
+        if ($longitude > 360) {
+            $longitude = $longitude % 360;
+        }
         if ($longitude > 180) {
             $longitude = 0 - ($longitude % 180);
         }
