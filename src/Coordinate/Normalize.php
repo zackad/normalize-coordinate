@@ -7,7 +7,7 @@ namespace Zackad\GIS\Coordinate;
 * -180 < longitude < 180
 * -90  < latitude  < 90
 */
-class NormalizeCoordinate
+class Normalize
 {
 
 }
