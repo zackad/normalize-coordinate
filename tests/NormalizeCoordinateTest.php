@@ -1,17 +1,18 @@
 <?php
 
-namespace Zackad\GIS\Test;
+namespace Zackad\GIS\Coordinate\Test;
 
 use PHPUnit\Framework\TestCase;
-use Zackad\GIS\NormalizeCoordinate;
+use Zackad\GIS\Coordinate\Normalize;
 
 /**
 * Test case for class NormalizeCoordinate
 */
-final class NormalizeCoordinateTest extends TestCase
+final class NormalizeTest extends TestCase
 {
-    public function testCanCreateNormalizeCoordinateClass()
+    public function testCanCreateNormalizeClass()
     {
-        $coordinate = new NormalizeCoordinate();
+        $coordinate = new Normalize;
+        $this->assertInstanceOf(Normalize::class, $coordinate);
     }
 }
