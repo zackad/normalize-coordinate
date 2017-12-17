@@ -20,6 +20,11 @@ final class NormalizeTest extends TestCase
     public function longitudeProvider()
     {
         return [
+            [-540.55, 179.45],
+            [-540, -180],
+            [-370.45, -10.45],
+            [-370, -10],
+            [-360, 0],
             [-190.55, 169.45],
             [-190, 170],
             [-10.123, -10.123],
@@ -43,10 +48,5 @@ final class NormalizeTest extends TestCase
     public function testNormalizeLongitudeWithVaroiusCase($input, $expected)
     {
         $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
-    }
-
-    public function testNormalizeLongitudeWithNegativeValueLessThanMinus360()
-    {
-        $this->assertEquals(0, $this->coord->normalizeLongitude(-360));
     }
 }
