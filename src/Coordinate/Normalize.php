@@ -9,7 +9,7 @@ namespace Zackad\GIS\Coordinate;
 */
 class Normalize
 {
-    public function normalize($longitude)
+    public function normalizeLongitude($longitude)
     {
         $decimalPlaces = ((int) $longitude != $longitude) ? (strlen($longitude) - strpos($longitude, '.')) - 1 : 0;
         if ($longitude > 360) {
