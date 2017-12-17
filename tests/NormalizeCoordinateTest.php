@@ -39,6 +39,6 @@ final class NormalizeTest extends TestCase
 
     public function testNormalizeLongitudeLessThanMinus180ShouldReturnPositiveValue()
     {
-        $this->assertEquals(10.100002, $this->coord->normalize(-190.100002));
+        $this->assertEquals(170, $this->coord->normalize(-190));
     }
 }
