@@ -49,4 +49,16 @@ final class NormalizeTest extends TestCase
     {
         $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
     }
+
+    public function testNormalizeLongitudeWithoutArgumentThrowArgumentCountError()
+    {
+        $this->expectException(\ArgumentCountError::class);
+        $this->coord->normalizeLongitude();
+    }
+
+    public function testNormalizeLongitudeWithInvalidDataThrowInvalidArgumenException()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->coord->normalizeLongitude('');
+    }
 }
