@@ -24,21 +24,21 @@ final class NormalizeTest extends TestCase
 
     public function testNormalizeLongitudeGreaterThan180AndLessThan360ShouldReturnNegativeValue()
     {
-        $this->assertEquals(-10, $this->coord->normalize(190));
+        $this->assertEquals(-10, $this->coord->normalizeLongitude(190));
     }
 
     public function testNormalizeLongitudeGreaterThan360ShouldReturnPositiveValue()
     {
-        $this->assertEquals(10, $this->coord->normalize(370));
+        $this->assertEquals(10, $this->coord->normalizeLongitude(370));
     }
 
     public function testNormalizedShouldIncludeFloatingPoint()
     {
-        $this->assertEquals(-12.123456, $this->coord->normalize(192.123456));
+        $this->assertEquals(-12.123456, $this->coord->normalizeLongitude(192.123456));
     }
 
     public function testNormalizeLongitudeLessThanMinus180ShouldReturnPositiveValue()
     {
-        $this->assertEquals(170, $this->coord->normalize(-190));
+        $this->assertEquals(170, $this->coord->normalizeLongitude(-190));
     }
 }
