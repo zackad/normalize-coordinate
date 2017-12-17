@@ -12,7 +12,7 @@ class Normalize
     public function normalizeLongitude($longitude)
     {
         $decimalPlaces = ((int) $longitude != $longitude) ? (strlen($longitude) - strpos($longitude, '.')) - 1 : 0;
-        if ($longitude > 360) {
+        if ($longitude >= 360 || $longitude <= -360) {
             $longitude = fmod($longitude, 360);
         }
         if ($longitude > 180) {
