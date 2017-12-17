@@ -17,6 +17,18 @@ final class NormalizeTest extends TestCase
         $this->coord = new Normalize;
     }
 
+    public function latitudeProvider()
+    {
+        return [
+            [0, 0],
+            [10, 10],
+            [10.1234, 10.1234],
+            [90, 90],
+            [91, 89],
+            [91.55, 88.45],
+        ];
+    }
+
     public function longitudeProvider()
     {
         return [
@@ -59,6 +71,14 @@ final class NormalizeTest extends TestCase
     public function testNormalizeLongitudeWithVaroiusCase($input, $expected)
     {
         $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
+    }
+
+    /**
+     * @dataProvider latitudeProvider
+     */
+    public function testNormalizeLatitudeWithVariousCase($input, $expected)
+    {
+        $this->assertEquals($expected, $this->coord->normalizeLatitude($input));
     }
 
     public function testNormalizeLongitudeWithoutArgumentThrowArgumentCountError()
