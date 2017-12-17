@@ -22,6 +22,8 @@ final class NormalizeTest extends TestCase
         return [
             [10, 10],
             [10.123, 10.123],
+            [190, -170],
+            [190.5, -169.5],
         ];
     }
 

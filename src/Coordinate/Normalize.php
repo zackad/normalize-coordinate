@@ -16,7 +16,7 @@ class Normalize
             $longitude = fmod($longitude, 360);
         }
         if ($longitude > 180) {
-            $longitude = 0 - fmod($longitude, 180);
+            $longitude = -180 + fmod($longitude, 180);
         }
         if ($longitude < -180) {
             $longitude = 180 + fmod($longitude, 180);
