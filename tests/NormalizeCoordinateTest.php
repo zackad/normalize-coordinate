@@ -47,6 +47,9 @@ final class NormalizeTest extends TestCase
         return [
             [''],
             ['hello'],
+            [$this],
+            [[]],
+            [array()],
         ];
     }
 
