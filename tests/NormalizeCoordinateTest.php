@@ -17,28 +17,48 @@ final class NormalizeTest extends TestCase
         $this->coord = new Normalize;
     }
 
+    public function longitudeProvider()
+    {
+        return [
+            [10, 10],
+            [10.123, 10.123],
+        ];
+    }
+
     public function testCanCreateNormalizeClass()
     {
         $this->assertInstanceOf(Normalize::class, $this->coord);
     }
 
-    public function testNormalizeLongitudeGreaterThan180AndLessThan360ShouldReturnNegativeValue()
+    /**
+     * @dataProvider longitudeProvider
+     */
+    public function testNormalizeLongitudeGreaterThan180AndLessThan360ShouldReturnNegativeValue($input, $expected)
     {
-        $this->assertEquals(-10, $this->coord->normalizeLongitude(190));
+        $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
     }
 
-    public function testNormalizeLongitudeGreaterThan360ShouldReturnPositiveValue()
+    /**
+     * @dataProvider longitudeProvider
+     */
+    public function testNormalizeLongitudeGreaterThan360ShouldReturnPositiveValue($input, $expected)
     {
-        $this->assertEquals(10, $this->coord->normalizeLongitude(370));
+        $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
     }
 
-    public function testNormalizedShouldIncludeFloatingPoint()
+    /**
+     * @dataProvider longitudeProvider
+     */
+    public function testNormalizedShouldIncludeFloatingPoint($input, $expected)
     {
-        $this->assertEquals(-12.123456, $this->coord->normalizeLongitude(192.123456));
+        $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
     }
 
-    public function testNormalizeLongitudeLessThanMinus180ShouldReturnPositiveValue()
+    /**
+     * @dataProvider longitudeProvider
+     */
+    public function testNormalizeLongitudeLessThanMinus180ShouldReturnPositiveValue($input, $expected)
     {
-        $this->assertEquals(170, $this->coord->normalizeLongitude(-190));
+        $this->assertEquals($expected, $this->coord->normalizeLongitude($input));
     }
 }
