@@ -25,11 +25,6 @@ final class NormalizeTest extends TestCase
         ];
     }
 
-    public function testCanCreateNormalizeClass()
-    {
-        $this->assertInstanceOf(Normalize::class, $this->coord);
-    }
-
     /**
      * @dataProvider longitudeProvider
      */
