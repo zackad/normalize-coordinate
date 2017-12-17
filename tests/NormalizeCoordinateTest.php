@@ -42,6 +42,14 @@ final class NormalizeTest extends TestCase
         ];
     }
 
+    public function invalidDataProvider()
+    {
+        return [
+            [''],
+            ['hello'],
+        ];
+    }
+
     /**
      * @dataProvider longitudeProvider
      */
@@ -56,9 +64,12 @@ final class NormalizeTest extends TestCase
         $this->coord->normalizeLongitude();
     }
 
-    public function testNormalizeLongitudeWithInvalidDataThrowInvalidArgumenException()
+    /**
+     * @dataProvider invalidDataProvider
+     */
+    public function testNormalizeLongitudeWithInvalidDataThrowInvalidArgumenException($invalid)
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->coord->normalizeLongitude('');
+        $this->coord->normalizeLongitude($invalid);
     }
 }

@@ -11,6 +11,9 @@ class Normalize
 {
     public function normalizeLongitude($longitude)
     {
+        if (strlen((string) $longitude) < 1) {
+            throw new \InvalidArgumentException("Number or string number is expected, empty/invalid argument given", 1);
+        }
         $decimalPlaces = ((int) $longitude != $longitude) ? (strlen($longitude) - strpos($longitude, '.')) - 1 : 0;
         if ($longitude >= 360 || $longitude <= -360) {
             $longitude = fmod($longitude, 360);
