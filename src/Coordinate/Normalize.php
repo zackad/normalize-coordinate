@@ -39,6 +39,9 @@ class Normalize
         if ($latitude > 90) {
             $latitude = 90 - fmod($latitude, 90);
         }
+        if ($latitude < -90) {
+            $latitude = -90 - fmod($latitude, 90);
+        }
         return number_format($latitude, $decimalPlaces);
     }
 }
