@@ -29,6 +29,9 @@ class Normalize
 
     public function normalizeLatitude($latitude)
     {
+        if (!is_numeric($latitude)) {
+            throw new \InvalidArgumentException("Expecting numeric as argument, invalid data type given");
+        }
         $decimalPlaces = ((int) $latitude != $latitude) ? (strlen($latitude) - strpos($latitude, '.')) - 1 : 0;
         if ($latitude >= 360) {
             $latitude = fmod($latitude, 360);

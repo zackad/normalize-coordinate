@@ -114,4 +114,19 @@ final class NormalizeTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->coord->normalizeLongitude($invalid);
     }
+
+    public function testNormalizeLatitudeWithoutArgumentThrowArgumentCountError()
+    {
+        $this->expectException(\ArgumentCountError::class);
+        $this->coord->normalizeLatitude();
+    }
+
+    /**
+     * @dataProvider invalidDataProvider
+     */
+    public function testNormalizeLatitudeWithInvalidDataThrowInvalidArgumentException($invalid)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->coord->normalizeLatitude($invalid);
+    }
 }
