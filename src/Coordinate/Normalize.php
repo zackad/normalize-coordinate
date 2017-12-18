@@ -9,6 +9,14 @@ namespace Zackad\GIS\Coordinate;
 */
 class Normalize
 {
+    public function normalize($longitude, $latitude)
+    {
+        return [
+            $this->normalizeLongitude($longitude),
+            $this->normalizeLatitude($latitude),
+        ];
+    }
+
     public function normalizeLongitude($longitude)
     {
         if (!is_numeric($longitude)) {
