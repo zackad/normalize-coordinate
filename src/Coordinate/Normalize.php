@@ -30,6 +30,9 @@ class Normalize
     public function normalizeLatitude($latitude)
     {
         $decimalPlaces = ((int) $latitude != $latitude) ? (strlen($latitude) - strpos($latitude, '.')) - 1 : 0;
+        if ($latitude >= 360) {
+            $latitude = fmod($latitude, 360);
+        }
         if ($latitude >= 180) {
             $latitude = 0 - fmod($latitude, 180);
         }
