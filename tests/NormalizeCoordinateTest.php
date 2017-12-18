@@ -26,6 +26,9 @@ final class NormalizeTest extends TestCase
             [90, 90],
             [91, 89],
             [91.55, 88.45],
+            [120, 60],
+            [180, 0],
+            [200, -20],
         ];
     }
 
