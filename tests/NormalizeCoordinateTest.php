@@ -20,6 +20,9 @@ final class NormalizeTest extends TestCase
     public function latitudeProvider()
     {
         return [
+            [-200.12345, 20.12345],
+            [-200, 20],
+            [-180, 0],
             [-120, -60],
             [-90.55, -89.45],
             [-90, -90],

@@ -33,7 +33,7 @@ class Normalize
         if ($latitude >= 360) {
             $latitude = fmod($latitude, 360);
         }
-        if ($latitude >= 180) {
+        if ($latitude >= 180 || $latitude <= -180) {
             $latitude = 0 - fmod($latitude, 180);
         }
         if ($latitude > 90) {
