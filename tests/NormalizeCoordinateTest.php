@@ -15,6 +15,20 @@ final class NormalizeTest extends TestCase
     public function setUp()
     {
         $this->coord = new Normalize;
+        set_error_handler(array($this, 'errorHandler'));
+    }
+
+    public function errorHandler($errno, $errstr, $errfile, $errline)
+    {
+        throw new \InvalidArgumentException(
+            sprintf(
+                "Missing argument. %s %s %s %s",
+                $errno,
+                $errstr,
+                $errfile,
+                $errline
+            )
+        );
     }
 
     public function latitudeProvider()
@@ -102,8 +116,13 @@ final class NormalizeTest extends TestCase
 
     public function testNormalizeLongitudeWithoutArgumentThrowArgumentCountError()
     {
-        $this->expectException(\ArgumentCountError::class);
-        $this->coord->normalizeLongitude();
+        if (version_compare(PHP_VERSION, '7.1', '>=')) {
+            $this->expectException(\ArgumentCountError::class);
+            $this->coord->normalizeLongitude();
+        } else {
+            $this->expectException(\InvalidArgumentException::class);
+            $this->coord->normalizeLatitude();
+        }
     }
 
     /**
@@ -117,8 +136,13 @@ final class NormalizeTest extends TestCase
 
     public function testNormalizeLatitudeWithoutArgumentThrowArgumentCountError()
     {
-        $this->expectException(\ArgumentCountError::class);
-        $this->coord->normalizeLatitude();
+        if (version_compare(PHP_VERSION, '7.1', '>=')) {
+            $this->expectException(\ArgumentCountError::class);
+            $this->coord->normalizeLatitude();
+        } else {
+            $this->expectException(\InvalidArgumentException::class);
+            $this->coord->normalizeLatitude();
+        }
     }
 
     /**

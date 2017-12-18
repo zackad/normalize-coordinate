@@ -29,6 +29,9 @@ class Normalize
 
     public function normalizeLatitude($latitude)
     {
+        if (!isset($latitude)) {
+            throw new ArgumentCountException("Too few argument, expecting 1 argument to be passed");
+        }
         if (!is_numeric($latitude)) {
             throw new \InvalidArgumentException("Expecting numeric as argument, invalid data type given");
         }
