@@ -31,6 +31,25 @@ final class NormalizeTest extends TestCase
         );
     }
 
+    public function coordinateDataProvider()
+    {
+        $longitude = $this->longitudeProvider();
+        $latitude = $this->latitudeProvider();
+        $coorSize = min(count($longitude), count($latitude));
+        $coord = [];
+        for ($i=0; $i < $coorSize; $i++) {
+            array_push($coord, [
+                $longitude[$i][0],
+                $latitude[$i][0],
+                [
+                    $longitude[$i][1],
+                    $latitude[$i][1],
+                ]
+            ]);
+        }
+        return $coord;
+    }
+
     public function latitudeProvider()
     {
         return [
@@ -72,6 +91,7 @@ final class NormalizeTest extends TestCase
             [-360, 0],
             [-190.55, 169.45],
             [-190, 170],
+            [-180, -180],
             [-10.123, -10.123],
             [0, 0],
             [10, 10],
@@ -152,5 +172,13 @@ final class NormalizeTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->coord->normalizeLatitude($invalid);
+    }
+
+    /**
+     * @dataProvider coordinateDataProvider
+     */
+    public function testNormalizeLongitudeAndLongitude($longitude, $latitude, $expected)
+    {
+        $this->assertEquals($expected, $this->coord->normalize($longitude, $latitude));
     }
 }
