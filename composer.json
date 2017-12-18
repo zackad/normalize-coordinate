@@ -16,6 +16,6 @@
         "test": "phpunit --colors='always'"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^5.7 || ^6.5"
     }
 }
