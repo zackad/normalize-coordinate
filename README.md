@@ -20,9 +20,9 @@ composer require zackad/normalize-coordinate
 ## Usage
 
 ```php
-use Zackad\GIS\Coordinate\Normalize;
+use Zackad\GIS\Coordinate\Normalize as Coordinate;
 
-$coord = new Normalize;
+$coord = new Coordinate;
 
 echo $coord->normalizeLongitude(200);
 // will output '-160'
