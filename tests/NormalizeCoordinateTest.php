@@ -181,4 +181,13 @@ final class NormalizeTest extends TestCase
     {
         $this->assertEquals($expected, $this->coord->normalize($longitude, $latitude));
     }
+
+    /**
+     * @dataProvider invalidDataProvider
+     */
+    public function testNormalizeWithMixedDataThrowException($invalid)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->coord->normalize($invalid, 100);
+    }
 }
