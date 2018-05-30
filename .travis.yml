@@ -6,4 +6,7 @@ php:
   - 7.1
   - 7.2
 
-install: composer install --no-dev
+before_script:
+  - phpenv config-rm xdebug.ini
+  - composer dump-autoload
+  - phpunit --version
