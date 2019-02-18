@@ -1,6 +1,7 @@
 # PHP Normalize Coordinate
 
 [![travis-ci](https://travis-ci.org/zackad/normalize-coordinate.svg?branch=master)](https://travis-ci.org/zackad/normalize-coordinate)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zackad/normalize-coordinate/blob/master/LICENSE)
 
 A simple library to normalize Geographic Coordinate System (GCS) so the coordinate will be in the range of
 
