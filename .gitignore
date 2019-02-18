@@ -1,1 +1,8 @@
+# composer vendor
 /vendor/
+
+# intellij
+/.idea/
+
+# lockfile
+/composer.lock
