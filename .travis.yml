@@ -8,5 +8,6 @@ php:
 
 before_script:
   - phpenv config-rm xdebug.ini
+  - composer install
   - composer dump-autoload
   - phpunit --version
