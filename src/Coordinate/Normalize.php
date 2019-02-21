@@ -9,6 +9,11 @@ namespace Zackad\GIS\Coordinate;
 */
 class Normalize
 {
+    /**
+     * @param number $longitude     Longitude
+     * @param number $latitude      Latitude
+     * @return number[]             Coordinate with format [longitude, latitude]
+     */
     public function normalize($longitude, $latitude)
     {
         return [
@@ -17,6 +22,10 @@ class Normalize
         ];
     }
 
+    /**
+     * @param number $longitude     Longitude
+     * @return number               Normalized longitude
+     */
     public function normalizeLongitude($longitude)
     {
         if (!is_numeric($longitude)) {
@@ -35,6 +44,10 @@ class Normalize
         return number_format($longitude, $decimalPlaces);
     }
 
+    /**
+     * @param number $latitude      Latitude
+     * @return number               Normalized latitude
+     */
     public function normalizeLatitude($latitude)
     {
         if (!is_numeric($latitude)) {
